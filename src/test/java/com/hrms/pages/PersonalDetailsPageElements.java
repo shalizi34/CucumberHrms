@@ -21,6 +21,9 @@ public class PersonalDetailsPageElements {
 
 	@FindBy(id = "personal_txtEmployeeId")
 	public WebElement employeeId;
+	
+	@FindBy()
+	public WebElement profilePic;
 
 	public PersonalDetailsPageElements() {
 		PageFactory.initElements(BaseClass.driver, this);

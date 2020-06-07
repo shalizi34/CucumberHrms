@@ -2,9 +2,8 @@ package com.hrms.runners;
 
 import org.junit.runner.RunWith;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
-
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions (
@@ -16,10 +15,9 @@ import cucumber.api.junit.Cucumber;
 					// if set to true no actual execution will happen
 		monochrome = true
 		,strict=true
-		, tags= "@sprint13"
+		//, tags= "@inProgress"
 		)
 
 public class TestRunner {
-
 	
 }

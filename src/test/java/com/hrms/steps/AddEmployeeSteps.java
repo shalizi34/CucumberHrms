@@ -1,9 +1,13 @@
 package com.hrms.steps;
 
+import java.util.List;
+import java.util.Map;
+
 import org.junit.Assert;
 
 import com.hrms.utils.CommonMethods;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -75,5 +79,35 @@ public class AddEmployeeSteps extends CommonMethods {
 	public void and_is_added_successfully(String fname, String middleName, String laName) {
 		System.out.println("I added the employee !!!!!!!!!!!!!!!!!!!!!!!");
 		wait(2);
+	}
+
+	@When("user enters employee details and click on save then employee is added")
+	public void user_enters_employee_details_and_click_on_save(DataTable dataTable) {
+		
+		List<Map<String, String>> addEmployeeList=dataTable.asMaps();
+		
+		for(Map<String, String> map:addEmployeeList) {
+			
+			String fname=map.get("FirstName");
+			String mname=map.get("MiddleName");
+			String lname=map.get("LastName");
+			
+			sendText(addEmp.firstName, fname);
+			sendText(addEmp.middleName, mname);
+			sendText(addEmp.lastName, lname);
+			click(addEmp.saveBtn);
+			//adding assertion
+			
+			String actual=pdetails.profilePic.getText();
+			String expected=fname+" "+mname+" "+lname;
+			Assert.assertEquals("Employee is not addedd successfully", expected, actual);
+			jsClick(dashboard.addEmp);
+			wait(5);
+		}
+	}
+	
+	@Then("employee is added")
+	public void employee_is_added() {
+		System.out.println("-----Employee is added using datatable");
 	}
 }

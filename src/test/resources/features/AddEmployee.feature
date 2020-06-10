@@ -38,3 +38,14 @@ Feature: Add new Employee
       | Faisal    | F          | Sakhi     |
       | Sohil     | S          | Instuctor |
       | Yunus     | Emre       | Yakut     |
+
+  #adding multiple employees using Cucumber DataTable
+  @inProgress
+  Scenario: Adding multiple employees
+    When user enters employee details and click on save then employee is added
+      | FirstName | MiddleName | LastName |
+      | John      | J          | Doe      |
+      | Jane      | J          | Smith    |
+      
+      
+    

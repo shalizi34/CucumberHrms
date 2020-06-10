@@ -1,5 +1,6 @@
 Feature: Login
 
+  #previously written test
   @smoke
   Scenario: valid admin login
     When user enter valid admin username and password
@@ -12,6 +13,8 @@ Feature: Login
     And user click on login button
     Then ess user is successfully logged in
 
+  #enhancing test with Scenario Outline
+  @smoke
   Scenario Outline: 
     When user enter valid "<Username>" and "<Password>"
     And user click on login button
@@ -26,4 +29,12 @@ Feature: Login
   Scenario: Login with valid username and invalid password
     When User enter valid username and invalid password
     And user click on login button
-    Then User see Invalid Credentials text on login pagesee Invalid Credentials text on login page 
+    Then User see Invalid Credentials text on login page
+
+@temp
+  Scenario: Login with invalid credentials
+    When I enter invalid username and password and see error message
+      | UserName | Password   | ErrorMessage        |
+      | Admin    | Admin123   | Invalid Credentials |
+      | Hello    | Syntax123! | Invalid Credentials |
+      

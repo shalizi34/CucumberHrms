@@ -40,9 +40,9 @@ public class AddEmployeePageElements extends CommonMethods {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void createEmpLoginCR() {
-		sendText(username, ConfigsReader.getProperty("empUserName"));
-		sendText(password, ConfigsReader.getProperty("empPassword"));
+	public void createEmpLoginCR(String uid, String pwd) {
+		sendText(username, uid);
+		sendText(password, pwd);
 		sendText(confirmPassword, ConfigsReader.getProperty("empPassword"));
 		click(saveBtn);
 	}

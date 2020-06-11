@@ -1,22 +1,10 @@
+#Author: asel@syntaxtechs.com
+@sprint5 @login
 Feature: Login
 
-  #previously written test
   @smoke
-  Scenario: valid admin login
-    When user enter valid admin username and password
-    And user click on login button
-    Then admin user is successfully logged in
-
-  @smoke
-  Scenario: valid ess login
-    When user enter valid ess username and password
-    And user click on login button
-    Then ess user is successfully logged in
-
-  #enhancing test with Scenario Outline
-  @smoke
-  Scenario Outline: 
-    When user enter valid "<Username>" and "<Password>"
+  Scenario Outline: valid admin and ess login
+    When user enter "<Username>" and "<Password>"
     And user click on login button
     Then "<FirstName>" is successfully logged in
 
@@ -25,16 +13,15 @@ Feature: Login
       | Mahady   | Mahady123!! | John      |
       | abd77    | Syntax123!  | Abdullah  |
 
-  @smoke
-  Scenario: Login with valid username and invalid password
-    When User enter valid username and invalid password
+  @regression
+  Scenario Outline: Error message validation while invalid login
+    When user enter "<Username>" and "<Password>"
     And user click on login button
-    Then User see Invalid Credentials text on login page
+    Then user see "<ErrorMessage>"
 
-@temp
-  Scenario: Login with invalid credentials
-    When I enter invalid username and password and see error message
-      | UserName | Password   | ErrorMessage        |
-      | Admin    | Admin123   | Invalid Credentials |
-      | Hello    | Syntax123! | Invalid Credentials |
-      
+    Examples: 
+      | UserName | Password   | ErrorMessage             |
+      | Admin    | Admin123   | Invalid credentials      |
+      | Hello    | Syntax123! | Invalid credentials      |
+      | Admin    |            | Password cannot be empty |
+      |          | Syntax123! | Username cannot be empty |

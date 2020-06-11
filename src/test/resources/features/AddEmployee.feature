@@ -1,3 +1,5 @@
+#Author: syntaxteam
+@sprint6 @addEmployee
 Feature: Add new Employee
 
   Background: 
@@ -17,7 +19,6 @@ Feature: Add new Employee
     And user clicks save button
     Then employee is added successfully
 
-  @smoke
   Scenario: AddEmployee and create Login Credentials
     When user enters employees first name and last name
     And user clicks on create login checkbox
@@ -46,6 +47,7 @@ Feature: Add new Employee
       | FirstName | MiddleName | LastName |
       | John      | J          | Doe      |
       | Jane      | J          | Smith    |
-      
-      
-    
+
+  @excel
+  Scenario: Adding multiple employees from excel
+    When user enters employee data from "EmployeeLoginCredentials" excel sheet then employee is added

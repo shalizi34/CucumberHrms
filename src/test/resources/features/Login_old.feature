@@ -1,4 +1,4 @@
-Feature: Login
+Feature: Login OLD
 
   #previously written test
   Scenario: valid admin login

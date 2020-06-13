@@ -66,9 +66,9 @@ public class AddEmployeeSteps extends CommonMethods {
 		jsClick(addEmp.checkboxLoginDetails);
 	}
 
-	@When("user enters login credentials")
-	public void user_enters_login_credentials() {
-		addEmp.createEmpLoginCR(ConfigsReader.getProperty("username"),ConfigsReader.getProperty("password") );
+	@When("user enters login credentials as {string} and {string}")
+	public void user_enters_login_credentials(String uid, String pwd) {
+		addEmp.createEmpLoginCR(uid, pwd);
 	}
 
 	@When("user enter employees {string}, {string} and {string}")

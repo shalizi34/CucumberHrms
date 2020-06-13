@@ -4,6 +4,7 @@ import com.hrms.pages.AddEmployeePageElements;
 import com.hrms.pages.DashboardPageElements;
 import com.hrms.pages.LoginPageElements;
 import com.hrms.pages.PersonalDetailsPageElements;
+import com.hrms.pages.SauceDemoLoginPage;
 import com.hrms.pages.ViewEmployeePageElements;
 
 //initializes all pages class and stores references in static varibales
@@ -15,6 +16,7 @@ public class PageInitializer extends BaseClass{
 	public static DashboardPageElements dashboard;
 	public static PersonalDetailsPageElements pdetails;
 	public static ViewEmployeePageElements viewEmp;
+	public static SauceDemoLoginPage sauceLogin;
 	
 	public static void initialize() {
 		
@@ -23,5 +25,6 @@ public class PageInitializer extends BaseClass{
 		addEmp=new AddEmployeePageElements();
 		pdetails=new PersonalDetailsPageElements();
 		viewEmp=new ViewEmployeePageElements();
+		sauceLogin=new SauceDemoLoginPage();
 	}
 }

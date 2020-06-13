@@ -7,19 +7,17 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions (
-		features = "src/test/resources/features/", //specify which feature file to run
-					//in our case we do say to run all features inside features package
-		glue="com/hrms/steps", //where we can find implementation code for gherkin steps?
-					//we specify just package
-		dryRun=true, //if set to true it will quickly scan that all gherkin steps have implementation code
-					// if set to true no actual execution will happen
+		features = "src/test/resources/features/",
+		glue="com/hrms/steps", 
+		//dryRun=true, 
 		monochrome = true
 		,strict=true
 		,tags= "@regression"
 		,plugin= {
-				"pretty",//prints gherkin steps in console
-				"html:target/cucumber-default-report"//create basic html report in specified location
-				}
+				"pretty",
+				"html:target/cucumber-default-report",
+				"json:target/cucumber.json"
+		}
 		)
 
 public class RegressionRunner {

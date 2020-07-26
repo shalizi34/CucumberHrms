@@ -2,7 +2,7 @@
 @sprint5 @login
 Feature: Login
 
-  @mvn
+  @smoke
   Scenario Outline: valid admin and ess login
     When user enter "<Username>" and "<Password>"
     And user click on login button
@@ -11,7 +11,7 @@ Feature: Login
     Examples: 
       | Username | Password    | FirstName |
       | Mahady   | Mahady123!! | John      |
-      | abd77    | Syntax123!  | Abdullah  |
+      #| abd77    | Syntax123!  | Abdullah  |
 
   @reporting
   Scenario Outline: Error message validation while invalid login

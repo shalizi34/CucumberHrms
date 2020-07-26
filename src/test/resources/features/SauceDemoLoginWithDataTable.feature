@@ -11,4 +11,4 @@ Feature: Sace Demo login
     |admin|
     |regular|
     And click on login button
-    Then user should see the error message
+    Then user should see the error message user should see the error message
